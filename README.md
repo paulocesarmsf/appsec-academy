@@ -27,6 +27,6 @@ Replace `your-username/appsec-academy` with the correct path to the repository w
 
 The workflow will:
 1. Checkout the code
-2. Run Semgrep with default rules
-3. Generate a SARIF file with the results
-4. Upload the results to the GitHub Security tab
+2. Install Semgrep via pip
+3. Run Semgrep scan with default rules and generate SARIF output
+4. Upload the SARIF results to the GitHub Security tab
