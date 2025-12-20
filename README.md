@@ -18,6 +18,10 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   security-scan:
     uses: your-username/appsec-academy/.github/workflows/static-security-pipeline.yml@main
