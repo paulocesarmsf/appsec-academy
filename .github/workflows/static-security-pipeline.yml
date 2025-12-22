@@ -21,10 +21,15 @@ jobs:
           pip install semgrep
 
       - name: Run Semgrep
-        run: semgrep scan --error --sarif --output=semgrep.sarif .
+        run: semgrep scan --sarif --output=semgrep.sarif .
 
       - name: Upload SARIF
         if: always()
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: semgrep.sarif
+
+      - name: Security gate (fail on ERROR-level findings in SARIF)
+        if: always()
+        run: jq -e '.runs[].results[] | select(.level == "error")' semgrep.sarif \
+          && exit 1 || exit 0
