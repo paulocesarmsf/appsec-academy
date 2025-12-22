@@ -31,5 +31,4 @@ jobs:
 
       - name: Security gate (fail on ERROR-level findings in SARIF)
         if: always()
-        run: jq -e '.runs[].results[] | select(.level == "error")' semgrep.sarif \
-          && exit 1 || exit 0
+        run: jq -e '.runs[].results[] | select(.level == "error")' semgrep.sarif && exit 1 || exit 0
