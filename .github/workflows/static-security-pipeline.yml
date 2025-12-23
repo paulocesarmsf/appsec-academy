@@ -29,9 +29,10 @@ jobs:
         with:
           sarif_file: semgrep.sarif
 
-      - name: Run OSV-Scanner
-        uses: "google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.0"
-        with:
-          scan-args: |
-            --recursive
-            .
+  osv:
+    uses: "google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.0"
+    
+    with:
+      scan-args: |
+        --recursive
+        .
