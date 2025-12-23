@@ -38,4 +38,5 @@ jobs:
     with:
       scan-args: |
         --recursive
+        --fail-on-vuln=true
         .
