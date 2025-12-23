@@ -6,7 +6,6 @@ on:
 permissions:
   contents: read
   security-events: write
-  actions: none
 
 jobs:
   sast:
@@ -35,6 +34,7 @@ jobs:
     permissions:
       contents: read
       security-events: write
+      actions: read
     with:
       scan-args: |
         --recursive
