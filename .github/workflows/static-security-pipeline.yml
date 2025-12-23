@@ -6,6 +6,7 @@ on:
 permissions:
   contents: read
   security-events: write
+  actions: none
 
 jobs:
   sast:
@@ -23,7 +24,7 @@ jobs:
       - name: Run Semgrep
         run: semgrep scan --sarif --output=semgrep.sarif .
 
-      - name: Upload SARIF
+      - name: Upload Semgrep SARIF
         if: always()
         uses: github/codeql-action/upload-sarif@v4
         with:
