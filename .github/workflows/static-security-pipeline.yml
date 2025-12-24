@@ -36,7 +36,6 @@ jobs:
       security-events: write
       actions: read
     with:
-      fail-on-vuln: false
       scan-args: |
         --recursive
         .
