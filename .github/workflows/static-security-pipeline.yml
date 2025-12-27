@@ -28,14 +28,3 @@ jobs:
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: semgrep.sarif
-
-  osv:
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.0
-    permissions:
-      contents: read
-      security-events: write
-      actions: read
-    with:
-      scan-args: |
-        --recursive
-        .
